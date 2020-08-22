@@ -1,4 +1,4 @@
-//package com.company;
+package com.company;
 
 import edu.princeton.cs.algs4.BinarySearchST;
 import edu.princeton.cs.algs4.In;
@@ -74,6 +74,7 @@ public class BaseballElimination {
 // number of remaining games between team1 and team2
 
     public boolean isEliminated(String team) {
+        if(numberOfTeams()==1){return false;}
         check(team);
         if ((wins(team) + remaining(team)) < max) {
             return true;
@@ -155,7 +156,7 @@ public class BaseballElimination {
     }
 
     public static void main(String[] args) {
-        BaseballElimination division = new BaseballElimination("teams4.txt");
+        BaseballElimination division = new BaseballElimination("teams4a.txt");
         for (String team : division.teams()) {
             if (division.isEliminated(team)) {
                 StdOut.print(team + " is eliminated by the subset R = { ");
